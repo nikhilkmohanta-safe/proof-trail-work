@@ -1,0 +1,396 @@
+import {
+  AuditMilestone,
+  AuditValidationRecord,
+  DomainRecord,
+  ExecutionTag,
+  ProofItem,
+  RepoItem,
+  StagedExecution,
+} from '../types/prooftrail';
+
+export const ASSETS = {
+  logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB0D-EBsvUb_LjohTcT4U-OC61p0ueyEYDkceB2gARgJmuavBoY1eF3POrwOberIS7taKerT7NnwJ5XqUhnYIEmgLpZKgjCTtPxtxPZKEjoYLNQuMXGA71wGIj4E0sPX1KQHJ51gZlsqQ6c8_Qc8pniecJlDsRnDtdDu38k2jzYqstTSwJ9arGkBbRG6o0gHYl4EphPY6GrFAyZYdM0eAJCilB9vdL_4caDbYWxWMg',
+  profileAvatar:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuCRF85Yp9OtaSACduYVKS--vNCDNYZa3B7olp8JvJzCGYbN8xEA1sjOFh2EwV6HptBtup_3H9Ocr9aQj4lSojaJvVqlgijB8foyWUtS2T_x89A6QbOp5RCGSSpme42-xx_9TYzWY69naPEyHDmRDfsT1PIuXlbMuLQKMIhAkGObKNqJYxil94Ph9rleYSSvcIZjMtrQnL-cvFmSI4_Dd1HWnH7GG0DZJWU8i-AhZIU',
+  raftDiffSnapshot:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuBpSDiuPXRdDY_Pr0ZP1P5Mv32pjvpj6hB2qrDKqAu28U5cPu1G--NXBiPMdtpnlRfwJdr-vLhsD8x8IqWVdmXjIy5eSAnqVZMAkq1gctk1KboigbTbXNvkePUqDLRLKftNcXR88-3UY15QOmfVFCE09JBcrPCnf2jQhYGEtLIdWXCb1dxCFrNMw3WQecDugTAJK_glxcwjrXklkdNVZROAHgLnAlsyxZRCwfIpOdk',
+  skillSystemsThumb:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuBVeIvBQW7RVkgtc_E20EdM3m-kErL3NxDy3a7mrqovWSspPG3OggphQrJrjj1Kguv26mV0a-C9QRJsmJlXU5pitQvU6FVopW6gYuq8REdRqYOp4xiRqN3Qlo3SYIcANBby87xRWcTOOFYe52ElzyKW1MldNUmI7PkkjTB3jHGxY9ZqCYvi0Qi17lQQSs6BdOyBDksoNDuGU13rtFjdlNvjrlnjyRo9qC_JfYozKSw',
+  skillDistributedThumb:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuDhxdRDFzQobRmk-7XIfeFSAaXW4TnuQlWZzLSb1bl-mo1oA17g3X8T4tsUvu6cIIM4YzOZdzdRwMjN-BJTr7GCztRu6Nar647wNwXfv32gDYkUqdu4AWx4FGWOXVy9YKAFMZEUIrI9eXxmBjhVCWshFGNZWzBfv_TdAVICJXTbVjtAvtTPxapnZ_44FoutWeDvXKfFJ9LK1iwpSJiVl9094mPwEhACzyVlrh4Vi50',
+  skillCloudThumb:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuBlX0cg0mM7ZVueanAS3K2YuqAAJt2U-IXMofyoWzs6Yg7e_TeeBYJE7LoGQJkQLstVBSsvDHoQN45q9TyTVItN7xKEhjhbDESsONEQyVQzmk7YDJWK3CCIsFs0PlTVG3nxmFxVdOV9bUisBi9jCKc_rlxhKRIfI1vlVrN6H6tour00ty3FfQTqEw61a5pmMx0urIAHRLd063liS4jk3BLOUWnDe_px6sPLjffC4lQ',
+  skillAlgoThumb:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuCfrdVSFPk-nF7gb1tdZ24yzgDc2SU2XpJPqf8__g3BXPjFaQnY4LLUPUz6Q5z88wprB6kpbgiG8PsISes_IblYdAU6TtmQ_rps1lJzmb-sCzVgMq1FHKino7tlaS5MqkN_v2UHBSk5S2X6fWQjG-AohZSlaLK772hAShH4C3jKRvFpxm746bhX9GdzooQ9prlawGzqeLaefkycNkx3syCT9nPCj-yy1NMtlNDDi2c',
+  latencyDropThumb:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuAS4zKzzo2ZwwYkAtEJdln9z5affMa8u80iCqdZMZbDP-PAtDOYD6lc--5ALBE7CyAEe7g7ww4mS1ydjrg42kp4X_5D53u1usSmfigS_8FPgzyiWQVjBFyaBWUSu-6wyjccFEqBK44MQ0fUd4s7IXfXD4O4c2gdHmcsy9SpfDW-xQ5fliVB0uXMShlsTlf8cp3FxgffaTp2RQJhbVQUNKLEGwx7DYY6QWg-3-pYe1I',
+  peerAvatar1:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuA8OTGiAyjGKXDURVBJ_M4geNB5lUk66pSTWHTHwGnzuaTPg9S6Dv-AcCub3GTC6EnF-yHuz-SfaljNlluqKistwDeTfbjGy_vcB99xto7Gr499ygwdQJN35FX6WzLTRcpPK2UBQgOCPjLhSpYdlls8zXeU_Pfj0bmaDaCNbejO51GDjGolS63Yfbp9VLX0WR4z2JwkLEErJyNMmT4RRaxvZtrQSWcmvZBlXuMuYUc',
+  peerAvatar2:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuDVavMzkQAZeW013uhTwzTbsiXQq1ap6jBrV4LRCGAGQA2QuZRH0a0YH5tou9XM9URUPcAm_r8afTlUFl6JNwWei878iyLVN_feM84mlPVR5nID7Ktdtrf8imwzYBLt4EdlPU43PSf3SUwQzZ4AK9pZP6pNCl1ghWf_9nlAhyDMyG_I-JZkDGAu-149mvfRZiLXmQ6bSZ5LVuZuFx6sKObbrYCTrQ8DXZQHy6jebN0',
+  peerAvatar3:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuCBqDTcgCFLzh2sKlmFRIcmGFQ_CKn6-0OTmc12NfNIdrkR0p4rt3b6f3_lKmEStiXrCN_16tI72EUI15pwiNQ_Hbx7fgtYt5DhNpuYbZqj_JLwMa9vBs8xzQhuDeC1OfMGkadffBScEh1VIGn0Liibs08rRNWkghmdu4mZMOLpeWKjNEr4YMFQMBJkI-3LRn3HwUV0nQOz8QsYm5NiLmMcPDO-0xov039TBHzu3pU',
+  peerAvatar4:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuCffvpCIaLjUOMtEjrS1iabC14W0QVS1W7VCZOfWnpKhqvCFDwWkuK0NxRB0S7RA4KElN_nxfPBJ2QDJyit7tvSrOUFs91Pgn5soC76duz4M3RujSUO2zZbabcvoTP1RlRSAFHKnnDoCZkiE2vPj6osbA3mAlQspu28ILjPFCJ8i-GTmKspVvYEbWHF_fuyhIr9lHvf29k907g2cY1XDnjf_7kZ2Tt5QFd7Q5WeGOo',
+  archBlueprint:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuBaC8_izKF9MbaTSBKHPvoqqmDiQ59uVboN_VJn8fBsccre_HaXz2wMypEMtfkVk5Qdf98terOxTURVnZCsPQyL2tcYxe_whVGINfSvr0sDy4puZEtXqfxlX5mjUHJvhq9vpT0rvZZmw-Lpb5VCs0q3G-ohG7qtIkFnBVOSiJR5lz9jsTwUAEk2nQgtRs_weQcySz45rJQGC5SSj5iZmLvI-bmo63QV6qNpk3-tdyA',
+  orgAvatar:
+    'https://lh3.googleusercontent.com/aida-public/AB6AXuDb5HuonhnAiWhDDNletPtUC7k40h77Iiaphqsotem7DmTobzuXQooD-VyIWUAGQX6zJ6wkX5VfI26BKlWwpJYLzOTMsX-x6TWmiWZUuJ3BK3nHUzQEJ5KlAd57vN8GXy-6pGW0chHGCoNRfGFCpgDLQOisR2jiOq0wKFlEwVj8XURYQm0Ea2viRXX9Mwlr98wZpX3osGJT5yQdp6vECujzvVhG7MYDC_JMwsmk2hE',
+};
+
+export const INITIAL_PROOFS: ProofItem[] = [
+  {
+    id: 'raft-consensus',
+    category: 'github',
+    badgeLabel: 'Verified On-Chain',
+    badgeIcon: 'shield_with_heart',
+    badgeTone: 'secondary',
+    hashId: 'PT-9482f3a',
+    fullHash: '0x9482f3a7f4c9b1e8a201',
+    timestamp: 'Today, 14:22 UTC',
+    title:
+      'Distributed Raft Consensus Protocol in Go - Fixed Leader Election Split-Brain Race Condition',
+    narrative:
+      'Identified non-deterministic quorum term increments under network partition test suite. Refactored randomized pre-vote RPC handler with atomic mutex synchronization.',
+    imageUrl: ASSETS.raftDiffSnapshot,
+    imageAlt:
+      'Technical code diff terminal interface displaying Go concurrency code with git additions and consensus test pass receipts',
+    commitSha: 'sha256:7f4c9...b1e',
+    metrics: [
+      { icon: 'add', label: '842 LOC', tone: 'secondary' },
+      { icon: 'check_circle', label: '14 Tests Pass', tone: 'primary' },
+      { icon: 'merge', label: 'PR #84 Approved', tone: 'neutral' },
+    ],
+    skills: ['Go', 'Distributed Systems', 'Raft Consensus', 'Concurrency'],
+    trustScore: '98% Trust Score',
+    trustPct: 98,
+    sealLabel: 'GPG-Signed',
+    sealIcon: 'key',
+    nodeColor: 'primary',
+  },
+  {
+    id: 'fpga-verilog',
+    category: 'hardware',
+    badgeLabel: 'Hardware Verified',
+    badgeIcon: 'precision_manufacturing',
+    badgeTone: 'tertiary',
+    hashId: 'PT-7719c0b',
+    fullHash: '0x7719c0b891d44e92a110',
+    timestamp: 'Yesterday, 19:40 UTC',
+    title: 'FPGA Verilog Pipeline Accelerator for Transformer Quantization',
+    narrative:
+      'Pipelined systolic array multiply-accumulate unit for 4-bit integer weights. Achieved zero pipeline stall cycles with verified timing closure on Vivado synthesis.',
+    waveform: {
+      clockLabel: 'Clock Period: 14.2ns (70.4 MHz Target)',
+      statusLabel: 'TIMING MET',
+      lut: 'LUT Utilization: 44.8%',
+      dsp: 'DSP Slices: 64/90',
+      slack: 'Slack: +1.84ns',
+    },
+    skills: ['Verilog', 'FPGA', 'Quantization', 'Digital Logic'],
+    trustScore: '100% Bench Attested',
+    trustPct: 100,
+    sealLabel: 'Bitstream #891d',
+    nodeColor: 'tertiary',
+  },
+  {
+    id: 'redis-cache',
+    category: 'architecture',
+    badgeLabel: 'Arch Benchmarked',
+    badgeIcon: 'verified',
+    badgeTone: 'secondary',
+    hashId: 'PT-3841e2a',
+    fullHash: '0x3841e2a89cbff741',
+    timestamp: '2 days ago',
+    title: 'Optimized Redis Cache Invalidation Strategy - 40% Latency Drop',
+    narrative:
+      'Replaced destructive bulk keyspace sweeps with high-performance probabilistic Bloom filter invalidation tags and asynchronous event fanout pipelines.',
+    comparisonBar: {
+      label: 'p99 Read Latency',
+      delta: '18.4ms → 10.9ms (-40.7%)',
+      beforePct: 59,
+      afterPct: 41,
+    },
+    skills: ['Redis', 'Caching Architecture', 'Performance Profiling'],
+    showQuickActions: true,
+    nodeColor: 'secondary',
+  },
+  {
+    id: 'ebpf-drop-fix',
+    category: 'debugging',
+    badgeLabel: 'Trace Verified',
+    badgeIcon: 'bug_report',
+    badgeTone: 'secondary',
+    hashId: 'PT-5190d4c',
+    fullHash: '0x5190d4c91b22f0a8',
+    timestamp: '4 days ago',
+    title: 'Isolated XDP Ringbuffer Packet Drop Under 40Gbps NIC Burst',
+    narrative:
+      'Captured kernel eBPF perf ring trace exposing NUMA cross-socket DMA contention. Pinned IRQ affinity and batch-flushed sk_buff descriptors.',
+    metrics: [
+      { icon: 'speed', label: '0.002% Drop', tone: 'secondary' },
+      { icon: 'memory', label: 'NUMA Pinned', tone: 'primary' },
+      { icon: 'verified', label: 'bpftrace Log', tone: 'neutral' },
+    ],
+    skills: ['eBPF / XDP', 'Linux Kernel', 'Perf Profiling'],
+    trustScore: '96% Trace Verified',
+    trustPct: 96,
+    sealLabel: 'Kernel Signed',
+    sealIcon: 'terminal',
+    nodeColor: 'secondary',
+  },
+];
+
+export const DOMAIN_RECORDS: DomainRecord[] = [
+  {
+    id: 'systems-prog',
+    title: 'Systems Programming',
+    levelLabel: 'L5 Mastery',
+    levelTone: 'mastery',
+    hours: '128 Verified Hours',
+    proofCount: '19 Proof Hashes',
+    icon: 'memory',
+    iconTone: 'primary',
+    progressLabel: 'Kernel Execution & Memory Bounds',
+    progressPct: 98,
+    barColor: 'primary',
+    recentProofHash: 'commit_0x4f82a9...d3',
+    recentProofCopyValue: '0x4f82a9d3',
+    recentProofTitle: 'Lock-free ringbuffer allocator & SIMD dispatch',
+    thumbnailUrl: ASSETS.skillSystemsThumb,
+    thumbnailAlt: 'Memory allocation assembly code snippets on dark IDE terminal',
+  },
+  {
+    id: 'distributed-sys',
+    title: 'Distributed Systems',
+    levelLabel: 'L4 Advanced',
+    levelTone: 'advanced',
+    hours: '84 Verified Hours',
+    proofCount: '12 Proof Hashes',
+    icon: 'account_tree',
+    iconTone: 'secondary',
+    progressLabel: 'Raft Consensus & Partition Tol.',
+    progressPct: 86,
+    barColor: 'secondary',
+    recentProofHash: 'proof_0xbc2189...88',
+    recentProofCopyValue: '0xbc218988',
+    recentProofTitle: 'State-machine replication node cluster under Jepsen tests',
+    thumbnailUrl: ASSETS.skillDistributedThumb,
+    thumbnailAlt: 'Network topology graph illustrating distributed consensus state',
+  },
+  {
+    id: 'cloud-infra',
+    title: 'Cloud & Infrastructure',
+    levelLabel: 'L4 Advanced',
+    levelTone: 'advanced',
+    hours: '62 Verified Hours',
+    proofCount: '9 Proof Hashes',
+    icon: 'cloud_done',
+    iconTone: 'tertiary',
+    progressLabel: 'Terraform Mesh & K8s Operators',
+    progressPct: 79,
+    barColor: 'primary',
+    recentProofHash: 'infra_0x11a37c...fe',
+    recentProofCopyValue: '0x11a37cfe',
+    recentProofTitle: 'Zero-downtime Blue/Green rollout CRD controller',
+    thumbnailUrl: ASSETS.skillCloudThumb,
+    thumbnailAlt: 'Kubernetes cluster nodes connected with telemetry trails',
+  },
+  {
+    id: 'algo-opt',
+    title: 'Algorithm Optimization',
+    levelLabel: 'L3 Intermediate',
+    levelTone: 'intermediate',
+    hours: '41 Verified Hours',
+    proofCount: '7 Proof Hashes',
+    icon: 'speed',
+    iconTone: 'secondary',
+    progressLabel: 'Cache locality & Branch Prediction',
+    progressPct: 64,
+    barColor: 'primary-fixed',
+    recentProofHash: 'bench_0x7e2901...42',
+    recentProofCopyValue: '0x7e290142',
+    recentProofTitle: 'B-Tree branch-miss reduction (-42% clock cycles)',
+    thumbnailUrl: ASSETS.skillAlgoThumb,
+    thumbnailAlt: 'Execution latency flamegraph displaying nanosecond profiles',
+  },
+];
+
+export const EXECUTION_TAGS: ExecutionTag[] = [
+  { name: 'Go', confidence: 99, proofs: '32 Proofs', tier: 'Primary', dotColor: '#00f5d4' },
+  { name: 'Docker / K8s', confidence: 94, proofs: '14 Proofs', tier: 'Verified', dotColor: '#4edea3' },
+  { name: 'Rust', confidence: 91, proofs: '11 Proofs', tier: 'Active', dotColor: '#26fedc' },
+  { name: 'PostgreSQL', confidence: 88, proofs: '8 Proofs', tier: 'Engine', dotColor: '#7bd0ff' },
+];
+
+export const INITIAL_REPOSITORIES: RepoItem[] = [
+  {
+    id: 'paxos-kv',
+    fullName: 'alexchen/paxos-kv',
+    visibility: 'private',
+    branch: 'main',
+    description: 'High-throughput fault-tolerant key-value store using Multi-Paxos and LSM-trees.',
+    skillsPrefix: '+3 Skills:',
+    skills: ['Distributed Paxos', 'Rust', 'Storage Engines'],
+    commits: 142,
+    confidence: '98.4% Confidence',
+    ingestType: 'zk-scrim',
+    includePrBranches: true,
+    selected: true,
+    tags: ['Rust / C++', 'Distributed', 'Private & Scrimmed'],
+  },
+  {
+    id: 'raft-engine',
+    fullName: 'alexchen/raft-engine',
+    visibility: 'public',
+    branch: 'master',
+    description: 'Consensus module in Go with zero-allocation RPC serialization and network chaos testing.',
+    skillsPrefix: '+4 Skills:',
+    skills: ['Raft Consensus', 'Go', 'Benchmarking'],
+    commits: 89,
+    confidence: '99.1% Confidence',
+    ingestType: 'full',
+    selected: true,
+    tags: ['Distributed', 'Public Only'],
+  },
+  {
+    id: 'bpf-net',
+    fullName: 'alexchen/bpf-net',
+    visibility: 'private',
+    branch: 'develop',
+    description: 'Kernel eBPF XDP filter for DDoS mitigation and real-time packet telemetry.',
+    skillsPrefix: '+3 Skills:',
+    skills: ['eBPF / XDP', 'C / Kernel', 'Packet Filtering'],
+    commits: 64,
+    confidence: '97.8% Confidence',
+    ingestType: 'zk-scrim',
+    selected: true,
+    tags: ['Rust / C++', 'Private & Scrimmed'],
+  },
+  {
+    id: 'dotfiles-nix',
+    fullName: 'alexchen/dotfiles-nix',
+    visibility: 'public',
+    branch: 'Low Signal',
+    description: 'Declarative NixOS and Neovim workstation configuration.',
+    skills: ['Nix', 'Lua', 'DevOps'],
+    ingestType: 'low-signal',
+    selected: false,
+    tags: ['Public Only'],
+  },
+  {
+    id: 'gpu-matrix-kernels',
+    fullName: 'alexchen/gpu-matrix-kernels',
+    visibility: 'private',
+    branch: 'cuda-12',
+    description: 'CUDA and Triton kernels for flash attention FP8 acceleration and fused matmuls.',
+    skills: ['CUDA', 'Triton', 'GPU Optimization'],
+    ingestType: 'notice',
+    noticeText: 'Requires local proof daemon hook for kernel compilation hash traces.',
+    selected: false,
+    tags: ['Rust / C++', 'Private & Scrimmed'],
+  },
+];
+
+export const INITIAL_STAGED_EXECUTIONS: StagedExecution[] = [
+  {
+    id: 'staged-1',
+    badge: 'eBPF',
+    badgeTone: 'primary',
+    title: 'TCP Zero-Copy Kernel BPF Probe',
+    hash: '0x4a19...e87c',
+    timeAgo: '4h ago',
+    status: 'Valid',
+  },
+  {
+    id: 'staged-2',
+    badge: 'SIMD',
+    badgeTone: 'tertiary',
+    title: 'AVX-512 Vectorized JSON Parser',
+    hash: '0xb811...32d1',
+    timeAgo: '7h ago',
+    status: 'Valid',
+  },
+];
+
+export const AUDIT_VALIDATION_MAP: Record<string, AuditValidationRecord> = {
+  proof_0x8f2a67e2b109_consensus_opt: {
+    proofId: 'proof_0x8f2a67e2b109_consensus_opt',
+    status: 'Ledger Proof Match: Valid',
+    latency: '18ms',
+    artifact: 'paxos-kv/raft_core.go',
+    impact: '+38.4% Tail P99 Throughput',
+    authority: 'ed25519-sha512',
+    signature: 'sig:0x77cf3a908be14022b7dc0091ee6a89c23561a09d172e2390bb99281aef102e3b',
+  },
+  proof_0x4c99d211a7e4_raft_snapshot: {
+    proofId: 'proof_0x4c99d211a7e4_raft_snapshot',
+    status: 'Ledger Proof Match: Valid',
+    latency: '14ms',
+    artifact: 'raft-engine/slab_ringbuffer.go',
+    impact: '97% GC Pause Reduction (14.2ms → 0.4ms)',
+    authority: 'ed25519-sha512',
+    signature: 'sig:0x4c99d211a7e49901b2f38800c71aa28e49b117a5e82290cc11092a8d3c01e482',
+  },
+};
+
+export const AUDIT_MILESTONES: AuditMilestone[] = [
+  {
+    id: 'core-812',
+    code: '#CORE-812',
+    timeAgo: '3 days ago',
+    icon: 'task_alt',
+    title: 'Lockless Multi-Raft Replication Engine',
+    description:
+      'Architected and shipped a lock-free distributed consensus engine replacing mutex locks with crossbeam atomic primitives.',
+    diffChips: [
+      { label: '+2,480 LOC', tone: 'primary' },
+      { label: '-1,920 LOC', tone: 'error' },
+      { label: '18x Benchmark Run', tone: 'secondary' },
+    ],
+    gitDiff: {
+      commit: '0x8f2a67e2b109c91a004e8d3',
+      gpg: '0x44D9C7E',
+      removedLines: [
+        '- func (r *Raft) Propose(ctx context.Context, data []byte) error {',
+        '-     r.mu.Lock() // heavy contention point',
+        '-     defer r.mu.Unlock()',
+      ],
+      addedLines: [
+        '+ func (r *Raft) ProposeAtomic(ctx context.Context, batch *LogEntryBatch) (*Receipt, error) {',
+        '+     seq := r.ringSeq.Add(1) // lockless atomic CAS pipeline',
+        '+     return r.dispatcher.CommitFastPath(seq, batch)',
+      ],
+      coverage: '96.8%',
+      chaosTests: 'Passed (10,000 runs)',
+    },
+  },
+  {
+    id: 'perf-409',
+    code: '#PERF-409',
+    timeAgo: '2 weeks ago',
+    icon: 'task_alt',
+    title: 'Memory Subsystem Zero-Allocation Buffer Pool',
+    description:
+      'Eliminated GC pauses under peak ingress (1.2M queries/sec) using slab-based off-heap byte ringbuffers.',
+    metricPair: {
+      leftLabel: 'Garbage Collection Pause',
+      leftValue: '14.2ms → 0.4ms (97% reduction)',
+      rightLabel: 'Audit Trace',
+      rightValue: 'proof_0x4c99d211a7',
+    },
+  },
+  {
+    id: 'paper-018',
+    code: '#PAPER-018',
+    timeAgo: '1 month ago',
+    icon: 'verified',
+    title: 'Byzantine Fault Tolerant Mesh Protocol',
+    description:
+      'Co-authored peer-reviewed preprint on partial synchrony network partitions. Validated with formal TLA+ specifications.',
+    paperMeta: {
+      specLabel: 'Formal Spec: Verified Correct',
+      arxiv: 'ArXiv: 2403.09118v1',
+    },
+  },
+];

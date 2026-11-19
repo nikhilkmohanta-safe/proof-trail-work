@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#10131a;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#00f5d4", "secondary-fixed-dim": "#4edea3", "on-error-container": "#ffdad6", "on-secondary-fixed": "#002113", "tertiary-container": "#b1e1ff", "surface-container-low": "#191b23", "on-tertiary": "#00354a", "on-surface-variant": "#b9cac4", "surface-variant": "#32353d", "surface-container-lowest": "#0b0e15", "on-secondary-fixed-variant": "#005236", "on-background": "#e1e2ec", "primary": "#d7fff3", "surface-tint": "#00dfc1", "tertiary-fixed": "#c4e7ff", "inverse-primary": "#006b5b", "surface": "#10131a", "primary-fixed-dim": "#00dfc1", "error": "#ffb4ab", "background": "#10131a", "on-surface": "#e1e2ec", "on-primary-container": "#006c5c", "surface-bright": "#363941", "on-tertiary-fixed": "#001e2c", "inverse-surface": "#e1e2ec", "tertiary-fixed-dim": "#7bd0ff", "on-primary-fixed-variant": "#005144", "tertiary": "#f0f8ff", "error-container": "#93000a", "surface-dim": "#10131a", "secondary": "#4edea3", "surface-container": "#1d1f27", "inverse-on-surface": "#2d3038", "surface-container-high": "#272a32", "secondary-container": "#00a572", "secondary-fixed": "#6ffbbe", "on-secondary": "#003824", "outline": "#83948f", "on-secondary-container": "#00311f", "on-primary": "#00382f", "on-error": "#690005", "on-primary-fixed": "#00201a", "on-tertiary-container": "#00678b", "outline-variant": "#3a4a46", "on-tertiary-fixed-variant": "#004c69", "surface-container-highest": "#32353d", "primary-fixed": "#26fedc" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-desktop": "3rem", "space-xl": "2.5rem", "margin": "1rem", "gutter": "1.25rem", "margin-tablet": "2rem", "gutter-desktop": "1.5rem" }, "fontFamily": { "label-sm": ["JetBrains Mono"], "body-lg": ["Inter"], "code-hash": ["JetBrains Mono"], "headline-md": ["Inter"], "label-lg": ["JetBrains Mono"], "headline-lg-mobile": ["Inter"], "headline-xl-mobile": ["Inter"], "body-md": ["Inter"], "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "headline-xl": ["Inter"], "label-md": ["JetBrains Mono"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "code-hash": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-xl-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="ProofTrail Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0D-EBsvUb_LjohTcT4U-OC61p0ueyEYDkceB2gARgJmuavBoY1eF3POrwOberIS7taKerT7NnwJ5XqUhnYIEmgLpZKgjCTtPxtxPZKEjoYLNQuMXGA71wGIj4E0sPX1KQHJ51gZlsqQ6c8_Qc8pniecJlDsRnDtdDu38k2jzYqstTSwJ9arGkBbRG6o0gHYl4EphPY6GrFAyZYdM0eAJCilB9vdL_4caDbYWxWMg"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm tracking-tight text-primary font-bold">ProofTrail</span><span class="material-symbols-outlined text-secondary text-[16px]">verified</span></div><div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant font-code-hash tracking-wider uppercase">Mainnet-L2</span></div></div></div><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed font-label-sm text-label-sm"><span class="material-symbols-outlined text-[14px]">lock</span><span>SYNCED</span></div><span class="text-xs font-headline-sm text-on-surface-variant mr-1 hidden">Log Work</span><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary-container/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRF85Yp9OtaSACduYVKS--vNCDNYZa3B7olp8JvJzCGYbN8xEA1sjOFh2EwV6HptBtup_3H9Ocr9aQj4lSojaJvVqlgijB8foyWUtS2T_x89A6QbOp5RCGSSpme42-xx_9TYzWY69naPEyHDmRDfsT1PIuXlbMuLQKMIhAkGObKNqJYxil94Ph9rleYSSvcIZjMtrQnL-cvFmSI4_Dd1HWnH7GG0DZJWU8i-AhZIU"/></div></div></header><main class="flex-1 flex flex-col w-full pt-16 pb-20 bg-surface"><div class="flex flex-col w-full px-margin space-y-space-md">
+<!-- Header Banner Section (No H1 duplicate, purely contextual technical framing) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container p-space-md shadow-md">
+<div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-primary-container/5 blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between gap-space-sm relative z-10">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span>AUTONOMOUS EXTRACTION</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary tracking-tight">Capture Daily Technical Execution</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Log builds, commits, hardware labs, or debugging breakthroughs. ProofTrail extracts verified telemetry automatically.
+        </p>
+</div>
+<div class="hidden sm:flex flex-col items-end shrink-0">
+<span class="font-label-sm text-label-sm text-outline">EPOCH_TS</span>
+<span class="font-label-sm text-label-sm text-primary-container font-code-hash" id="epoch-counter">1711928421</span>
+</div>
+</div>
+</div>
+<!-- Quick Connect Integrations Bar -->
+<div class="bg-surface-container rounded-xl p-space-sm shadow-sm space-y-space-xs">
+<div class="flex items-center justify-between px-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Telemetry Ingestion Sources</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cloud_sync</span> Live Synced
+      </span>
+</div>
+<!-- Scrollable quick integration chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 no-scrollbar">
+<!-- Active GitHub Chip -->
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-highest text-primary shrink-0 transition-all hover:bg-surface-bright" type="button">
+<svg class="w-4 h-4 fill-primary-container" viewbox="0 0 24 24">
+<path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path>
+</svg>
+<span class="font-label-sm text-label-sm font-medium">GitHub: Active</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim shadow-[0_0_8px_#4edea3]"></span>
+</button>
+<!-- GitLab Toggle -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors shrink-0" type="button">
+<span class="material-symbols-outlined text-[16px] text-orange-400">code_blocks</span>
+<span class="font-label-sm text-label-sm">GitLab</span>
+</button>
+<!-- Terminal CLI -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors shrink-0" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary-fixed">terminal</span>
+<span class="font-label-sm text-label-sm">CLI Hook</span>
+<span class="text-[10px] px-1 py-0.2 rounded bg-surface-container text-outline">v2.4</span>
+</button>
+<!-- Linear / Jira -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors shrink-0" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">task_alt</span>
+<span class="font-label-sm text-label-sm">Linear / Jira</span>
+</button>
+</div>
+</div>
+<!-- Manual / Fast Execution Entry Form Card -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">psychology</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Execution Context</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant px-2 py-0.5 rounded bg-surface-container-high">Markdown Enabled</span>
+</div>
+<!-- Work Log Text Area with dynamic typing effect -->
+<div class="relative">
+<label class="sr-only" for="work-log-input">What did you build or solve today?</label>
+<textarea class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-lg p-space-sm placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary-container resize-none transition-all" id="work-log-input" placeholder="What did you build or solve today? (e.g. Kernel tuning, microservice refactor, embedded circuit debugging...)" rows="4">Refactored backend websocket gateway to handle 50k concurrent connections using epoll and goroutine worker pools. Reduced p99 latency from 120ms to 18ms.</textarea>
+<div class="absolute bottom-2.5 right-2.5 flex items-center gap-2">
+<button class="p-1 rounded text-outline hover:text-primary-container hover:bg-surface-container transition-colors" title="Insert quick benchmark snippet" type="button">
+<span class="material-symbols-outlined text-[18px]">query_stats</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-primary-container hover:bg-surface-container transition-colors" title="Voice to telemetry transcription" type="button">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+</div>
+</div>
+<!-- Live AI Skill Extraction Box -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px] animate-spin" style="animation-duration: 4s;">neurology</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">SKILLS DETECTED</span>
+<span class="font-label-sm text-label-sm text-outline">(5)</span>
+</div>
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-high text-secondary-fixed-dim font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+<span>98% Confidence</span>
+</div>
+</div>
+<!-- Skills Chip Cloud -->
+<div class="flex flex-wrap gap-1.5 pt-1" id="skill-tag-container">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm shadow-sm transition-transform hover:scale-105">
+<span class="text-primary-container font-code-hash">#</span>Go
+          <span class="material-symbols-outlined text-[14px] text-secondary cursor-pointer">check</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm shadow-sm transition-transform hover:scale-105">
+<span class="text-primary-container font-code-hash">#</span>WebSockets
+          <span class="material-symbols-outlined text-[14px] text-secondary cursor-pointer">check</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm shadow-sm transition-transform hover:scale-105">
+<span class="text-primary-container font-code-hash">#</span>Concurrency
+          <span class="material-symbols-outlined text-[14px] text-secondary cursor-pointer">check</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm shadow-sm transition-transform hover:scale-105">
+<span class="text-primary-container font-code-hash">#</span>High Throughput
+          <span class="material-symbols-outlined text-[14px] text-secondary cursor-pointer">check</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm shadow-sm transition-transform hover:scale-105">
+<span class="text-primary-container font-code-hash">#</span>Linux epoll
+          <span class="material-symbols-outlined text-[14px] text-secondary cursor-pointer">check</span>
+</span>
+<button class="inline-flex items-center gap-1 px-2 py-1 rounded bg-surface-container text-outline hover:text-on-surface font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span> Add custom
+        </button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+        Context inferred from concurrency paradigms and runtime socket handling algorithms.
+      </p>
+</div>
+<!-- Proof Evidence Attachment Module -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Cryptographic Evidence Artifacts</label>
+<span class="font-label-sm text-label-sm text-primary-container">Immutable Link</span>
+</div>
+<!-- Commit Hash Input with Verification State -->
+<div class="flex items-center rounded-lg bg-surface-container-lowest px-3 py-2 space-x-2">
+<span class="material-symbols-outlined text-outline text-[18px]">terminal</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 font-code-hash">git rev-parse HEAD:</span>
+<input class="bg-transparent text-primary font-label-sm text-label-sm font-code-hash flex-1 min-w-0 focus:outline-none tracking-wider" type="text" value="7f4a21e8d901b0f5"/>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm shrink-0">
+<span class="material-symbols-outlined text-[12px] mr-1">done_all</span>Attached
+        </span>
+</div>
+<!-- Attachment Media Grid -->
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<!-- Benchmark Log File Preview -->
+<div class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]">description</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-label-sm text-label-sm text-on-surface truncate">benchmark_p99.log</p>
+<p class="font-label-sm text-label-sm text-outline">18.4 KB • SHA verified</p>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary-container text-[16px]">visibility</span>
+</div>
+<!-- Latency Profile Screen Capture Preview with detailed data-alt -->
+<div class="relative flex items-center gap-2 p-2 rounded-lg bg-surface-container-low overflow-hidden group cursor-pointer">
+<img class="w-10 h-10 rounded object-cover shrink-0" data-alt="Technical terminal telemetry benchmark graph showing extreme latency drop from 120ms to 18ms with neon cyan sparklines against a deep dark carbon matrix interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS4zKzzo2ZwwYkAtEJdln9z5affMa8u80iCqdZMZbDP-PAtDOYD6lc--5ALBE7CyAEe7g7ww4mS1ydjrg42kp4X_5D53u1usSmfigS_8FPgzyiWQVjBFyaBWUSu-6wyjccFEqBK44MQ0fUd4s7IXfXD4O4c2gdHmcsy9SpfDW-xQ5fliVB0uXMShlsTlf8cp3FxgffaTp2RQJhbVQUNKLEGwx7DYY6QWg-3-pYe1I"/>
+<div class="min-w-0 flex-1">
+<p class="font-label-sm text-label-sm text-on-surface truncate">latency_drop.png</p>
+<p class="font-label-sm text-label-sm text-secondary truncate">Grafana profile</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[16px] mr-1">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Cryptographic Proof Generation Preview -->
+<div class="rounded-xl bg-surface-container-lowest p-space-sm space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Proof Manifest (Draft)</span>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim flex items-center gap-1 font-code-hash">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span> L2-Pipelined
+        </span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-container font-label-sm text-label-sm font-code-hash flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">fingerprint</span>
+<span>SHA-256: 3e8f47c9...91a2</span>
+</span>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors" id="copy-hash-btn" title="Copy Raw Hash" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">schedule</span>
+<span>Locking: <strong class="text-on-surface font-code-hash">Block #1948291</strong></span>
+</div>
+</div>
+</div>
+<!-- Primary Action Button (Big glowing electric cyan button) -->
+<button class="relative group w-full py-3 px-4 rounded-xl bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-bold shadow-[0_0_16px_rgba(0,245,212,0.25)] hover:shadow-[0_0_24px_rgba(0,245,212,0.4)] active:scale-[0.99] transition-all flex items-center justify-center gap-2 overflow-hidden" id="publish-proof-btn" type="button">
+<span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-12">bolt</span>
+<span class="relative z-10 tracking-tight">Generate Proof ID &amp; Publish to Portfolio</span>
+<span class="material-symbols-outlined text-[18px] relative z-10">arrow_forward</span>
+</button>
+</div>
+<!-- Recent Auto-Staged Proofs Carousel / Micro-stream -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">history</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Recent Staged Executions</h4>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Today (3 logged)</span>
+</div>
+<div class="space-y-space-xs">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-container font-code-hash text-[12px] font-bold">
+            eBPF
+          </div>
+<div class="min-w-0">
+<p class="font-body-md text-body-md text-on-surface font-medium truncate">TCP Zero-Copy Kernel BPF Probe</p>
+<p class="font-label-sm text-label-sm text-outline truncate">Hash: <span class="font-code-hash text-on-surface-variant">0x4a19...e87c</span> • 4h ago</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Valid
+          </span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-tertiary-fixed-dim font-code-hash text-[12px] font-bold">
+            SIMD
+          </div>
+<div class="min-w-0">
+<p class="font-body-md text-body-md text-on-surface font-medium truncate">AVX-512 Vectorized JSON Parser</p>
+<p class="font-label-sm text-label-sm text-outline truncate">Hash: <span class="font-code-hash text-on-surface-variant">0xb811...32d1</span> • 7h ago</p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Valid
+          </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Human/Delight Informational Footer Framing -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex items-center gap-space-sm shadow-inner mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[22px]">auto_awesome</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+<strong class="text-primary font-semibold">Zero documentation stress.</strong> Your proof portfolio builds autonomously while you remain heads-down in flow state.
+      </p>
+</div>
+</div>
+</div>
+<!-- Interactive Client-side telemetry simulation -->
+<script>
+  (function() {
+    // Dynamic epoch ticker for terminal rigor feel
+    const epochEl = document.getElementById('epoch-counter');
+    if (epochEl) {
+      setInterval(() => {
+        const now = Math.floor(Date.now() / 1000);
+        epochEl.textContent = now;
+      }, 1000);
+    }
+
+    // Copy hash button micro-feedback
+    const copyBtn = document.getElementById('copy-hash-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const originalHtml = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-secondary">check</span>';
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHtml;
+        }, 1600);
+      });
+    }
+
+    // Publish Proof tactile feedback
+    const publishBtn = document.getElementById('publish-proof-btn');
+    if (publishBtn) {
+      publishBtn.addEventListener('click', function() {
+        const prevText = this.innerHTML;
+        this.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span><span>Minting Merkle Anchor...</span>';
+        this.classList.add('opacity-90');
+        setTimeout(() => {
+          this.innerHTML = '<span class="material-symbols-outlined text-[20px]">task_alt</span><span>Proof #0x3e8f Published!</span>';
+          this.classList.remove('bg-primary-container', 'text-on-primary-container');
+          this.classList.add('bg-secondary', 'text-on-secondary');
+          setTimeout(() => {
+            this.innerHTML = prevText;
+            this.classList.remove('bg-secondary', 'text-on-secondary');
+            this.classList.add('bg-primary-container', 'text-on-primary-container');
+          }, 2400);
+        }, 1200);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.4)]" data-active-classes="text-primary-container font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="timeline" href="#"><span class="material-symbols-outlined text-[22px]">history_toggle_off</span><span class="font-label-sm text-label-sm">Timeline</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="skill-matrix" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm">Skills</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-1 transition-colors text-primary-container font-semibold" data-path="log-work" href="#"><div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center"><span class="material-symbols-outlined text-primary-container text-[20px]">add_task</span></div><span class="font-label-sm text-label-sm">Log Work</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="audit-view" href="#"><span class="material-symbols-outlined text-[22px]">verified_user</span><span class="font-label-sm text-label-sm">Audit</span></a></div></nav></body></html>

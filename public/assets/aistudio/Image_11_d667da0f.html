@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#10131a;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-container": "#00f5d4", "secondary-fixed-dim": "#4edea3", "on-error-container": "#ffdad6", "on-secondary-fixed": "#002113", "tertiary-container": "#b1e1ff", "surface-container-low": "#191b23", "on-tertiary": "#00354a", "on-surface-variant": "#b9cac4", "surface-variant": "#32353d", "surface-container-lowest": "#0b0e15", "on-secondary-fixed-variant": "#005236", "on-background": "#e1e2ec", "primary": "#d7fff3", "surface-tint": "#00dfc1", "tertiary-fixed": "#c4e7ff", "inverse-primary": "#006b5b", "surface": "#10131a", "primary-fixed-dim": "#00dfc1", "error": "#ffb4ab", "background": "#10131a", "on-surface": "#e1e2ec", "on-primary-container": "#006c5c", "surface-bright": "#363941", "on-tertiary-fixed": "#001e2c", "inverse-surface": "#e1e2ec", "tertiary-fixed-dim": "#7bd0ff", "on-primary-fixed-variant": "#005144", "tertiary": "#f0f8ff", "error-container": "#93000a", "surface-dim": "#10131a", "secondary": "#4edea3", "surface-container": "#1d1f27", "inverse-on-surface": "#2d3038", "surface-container-high": "#272a32", "secondary-container": "#00a572", "secondary-fixed": "#6ffbbe", "on-secondary": "#003824", "outline": "#83948f", "on-secondary-container": "#00311f", "on-primary": "#00382f", "on-error": "#690005", "on-primary-fixed": "#00201a", "on-tertiary-container": "#00678b", "outline-variant": "#3a4a46", "on-tertiary-fixed-variant": "#004c69", "surface-container-highest": "#32353d", "primary-fixed": "#26fedc" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "space-sm": "0.5rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-desktop": "3rem", "space-xl": "2.5rem", "margin": "1rem", "gutter": "1.25rem", "margin-tablet": "2rem", "gutter-desktop": "1.5rem" }, "fontFamily": { "label-sm": ["JetBrains Mono"], "body-lg": ["Inter"], "code-hash": ["JetBrains Mono"], "headline-md": ["Inter"], "label-lg": ["JetBrains Mono"], "headline-lg-mobile": ["Inter"], "headline-xl-mobile": ["Inter"], "body-md": ["Inter"], "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "headline-xl": ["Inter"], "label-md": ["JetBrains Mono"] }, "fontSize": { "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "code-hash": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-xl-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="ProofTrail Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0D-EBsvUb_LjohTcT4U-OC61p0ueyEYDkceB2gARgJmuavBoY1eF3POrwOberIS7taKerT7NnwJ5XqUhnYIEmgLpZKgjCTtPxtxPZKEjoYLNQuMXGA71wGIj4E0sPX1KQHJ51gZlsqQ6c8_Qc8pniecJlDsRnDtdDu38k2jzYqstTSwJ9arGkBbRG6o0gHYl4EphPY6GrFAyZYdM0eAJCilB9vdL_4caDbYWxWMg"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm tracking-tight text-primary font-bold">ProofTrail</span><span class="material-symbols-outlined text-secondary text-[16px]">verified</span></div><div class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant font-code-hash tracking-wider uppercase">Mainnet-L2</span></div></div></div><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-primary-fixed font-label-sm text-label-sm"><span class="material-symbols-outlined text-[14px]">lock</span><span>SYNCED</span></div><span class="text-xs font-headline-sm text-on-surface-variant mr-1 hidden">Audit View</span><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary-container/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRF85Yp9OtaSACduYVKS--vNCDNYZa3B7olp8JvJzCGYbN8xEA1sjOFh2EwV6HptBtup_3H9Ocr9aQj4lSojaJvVqlgijB8foyWUtS2T_x89A6QbOp5RCGSSpme42-xx_9TYzWY69naPEyHDmRDfsT1PIuXlbMuLQKMIhAkGObKNqJYxil94Ph9rleYSSvcIZjMtrQnL-cvFmSI4_Dd1HWnH7GG0DZJWU8i-AhZIU"/></div></div></header><main class="flex-1 flex flex-col w-full pt-16 pb-20 bg-surface"><div class="flex flex-col w-full px-margin space-y-space-lg pb-space-xl">
+<!-- Candidate Passport Audit Header -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-md space-y-space-md">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Evaluator Audit Mode</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold tracking-tight">Alex Chen</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Staff Systems &amp; Distributed Systems Engineer</p>
+</div>
+<div class="bg-surface-container-high p-space-sm rounded-lg flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+</div>
+</div>
+<!-- Trust Verification Micro-Badge -->
+<div class="bg-surface-container-lowest rounded-lg p-space-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<div class="min-w-0">
+<div class="font-label-md text-label-md text-secondary font-semibold truncate">Cryptographically Verified Portfolio</div>
+<div class="font-code-hash text-code-hash text-on-surface-variant truncate">ZK-Attestation: 0x9f2a...88c4 · Mainnet Block #19,842,912</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary/10 text-secondary font-medium shrink-0">100% Signal</span>
+</div>
+<!-- Shareable Passport Link Widget -->
+<div class="flex items-center gap-space-xs pt-1">
+<div class="flex-1 bg-surface-container-low px-space-sm py-2 rounded-lg flex items-center justify-between min-w-0">
+<span class="font-code-hash text-code-hash text-on-surface truncate select-all">proof-trail.dev/verify/alex-chen.id</span>
+<button class="ml-2 text-primary-container hover:text-primary transition-colors flex items-center gap-1 shrink-0 active:scale-95" id="copy-passport-btn">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span class="font-label-sm text-label-sm">Copy Link</span>
+</button>
+</div>
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface p-2 rounded-lg flex items-center justify-center transition-colors" id="qr-trigger-btn">
+<span class="material-symbols-outlined text-[20px]">qr_code_2</span>
+</button>
+</div>
+</section>
+<!-- Instant Trust Verification Engine -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">troubleshoot</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Instant Proof Validator</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live Zero-Knowledge Check</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      Validate individual commits or project milestones directly. No inflated resumes, self-reported metrics, or phantom accomplishments.
+    </p>
+<!-- Hash Input Field -->
+<div class="space-y-space-xs">
+<div class="flex items-center bg-surface-container-lowest rounded-lg p-space-xs">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] ml-2">tag</span>
+<input class="w-full bg-transparent px-space-xs py-1.5 font-code-hash text-code-hash text-primary focus:outline-none placeholder-outline" id="proof-input" placeholder="Paste candidate Proof ID (e.g. proof_0x...)" type="text" value="proof_0x8f2a67e2b109_consensus_opt"/>
+<button class="bg-primary-container text-on-primary-container hover:opacity-90 active:scale-95 font-label-md text-label-md font-semibold px-space-md py-1.5 rounded transition-all shrink-0" id="validate-btn">
+          Inspect
+        </button>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm px-1">
+<span>Sample: <button class="underline text-primary-fixed hover:text-primary sample-click" data-hash="proof_0x8f2a67e2b109_consensus_opt" type="button">consensus_opt</button>, <button class="underline text-primary-fixed hover:text-primary sample-click" data-hash="proof_0x4c99d211a7e4_raft_snapshot" type="button">raft_snapshot</button></span>
+<span class="text-secondary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Ledger Online</span>
+</div>
+</div>
+<!-- Proof Evidence Dynamic Box -->
+<div class="bg-surface-container-low rounded-lg p-space-sm space-y-space-xs" id="proof-result">
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Ledger Proof Match: Valid</span>
+</div>
+<span class="font-code-hash text-label-sm text-secondary">Latency: 18ms</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-1">
+<div class="bg-surface-container-lowest p-2 rounded">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Validated Artifact</div>
+<div class="font-code-hash text-code-hash text-primary font-medium truncate">paxos-kv/raft_core.go</div>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Attested Impact</div>
+<div class="font-code-hash text-code-hash text-secondary font-medium truncate">+38.4% Tail P99 Throughput</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-2 rounded space-y-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+<span>Cryptographic Signature Authority</span>
+<span class="text-primary font-code-hash">ed25519-sha512</span>
+</div>
+<div class="font-code-hash text-code-hash text-on-surface-variant truncate">
+          sig:0x77cf3a908be14022b7dc0091ee6a89c23561a09d172e2390bb99281aef102e3b
+        </div>
+</div>
+</div>
+</section>
+<!-- Visual Evidence of Hands-On Engineering Execution -->
+<section class="bg-surface-container rounded-xl p-space-md shadow-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-[20px]">analytics</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Execution vs Resume Claims</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary/10 px-2 py-0.5 rounded">High Authenticity</span>
+</div>
+<!-- Comparison Metrics Cards -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Immutable Code Volume</div>
+<div class="font-headline-md text-headline-md text-primary font-bold mt-1">48,210</div>
+<div class="font-code-hash text-code-hash text-secondary">Verified Lines of Code</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Signed Commits</span>
+<span class="font-code-hash text-on-surface">342 commits</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between">
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Peer Consensus</div>
+<div class="font-headline-md text-headline-md text-secondary font-bold mt-1">4 / 4</div>
+<div class="font-code-hash text-code-hash text-on-surface-variant">L7+ Staff Attestations</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Reputation Confidence</span>
+<span class="font-code-hash text-secondary">99.8%</span>
+</div>
+</div>
+</div>
+<!-- Verified Peer Attestation Avatars -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Signed Attestations from Verified Leads</span>
+<span class="font-label-sm text-label-sm text-primary font-code-hash">4 Cryptographic Seals</span>
+</div>
+<div class="flex items-center gap-space-sm pt-1">
+<div class="flex -space-x-2 shrink-0">
+<img class="w-8 h-8 rounded-full object-cover shadow-sm bg-surface-container-high" data-alt="Close up avatar portrait of an Asian female principal engineer wearing tech glasses, moody terminal backdrop with emerald cyber accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8OTGiAyjGKXDURVBJ_M4geNB5lUk66pSTWHTHwGnzuaTPg9S6Dv-AcCub3GTC6EnF-yHuz-SfaljNlluqKistwDeTfbjGy_vcB99xto7Gr499ygwdQJN35FX6WzLTRcpPK2UBQgOCPjLhSpYdlls8zXeU_Pfj0bmaDaCNbejO51GDjGolS63Yfbp9VLX0WR4z2JwkLEErJyNMmT4RRaxvZtrQSWcmvZBlXuMuYUc"/>
+<img class="w-8 h-8 rounded-full object-cover shadow-sm bg-surface-container-high" data-alt="Close up avatar portrait of a Hispanic senior infrastructure architect in dark minimalist apparel with neon cyan studio reflection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVavMzkQAZeW013uhTwzTbsiXQq1ap6jBrV4LRCGAGQA2QuZRH0a0YH5tou9XM9URUPcAm_r8afTlUFl6JNwWei878iyLVN_feM84mlPVR5nID7Ktdtrf8imwzYBLt4EdlPU43PSf3SUwQzZ4AK9pZP6pNCl1ghWf_9nlAhyDMyG_I-JZkDGAu-149mvfRZiLXmQ6bSZ5LVuZuFx6sKObbrYCTrQ8DXZQHy6jebN0"/>
+<img class="w-8 h-8 rounded-full object-cover shadow-sm bg-surface-container-high" data-alt="Close up avatar portrait of a Black male staff systems engineer smiling warmly against dark carbon server rack lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBqDTcgCFLzh2sKlmFRIcmGFQ_CKn6-0OTmc12NfNIdrkR0p4rt3b6f3_lKmEStiXrCN_16tI72EUI15pwiNQ_Hbx7fgtYt5DhNpuYbZqj_JLwMa9vBs8xzQhuDeC1OfMGkadffBScEh1VIGn0Liibs08rRNWkghmdu4mZMOLpeWKjNEr4YMFQMBJkI-3LRn3HwUV0nQOz8QsYm5NiLmMcPDO-0xov039TBHzu3pU"/>
+<img class="w-8 h-8 rounded-full object-cover shadow-sm bg-surface-container-high" data-alt="Close up avatar portrait of a female distributed algorithms researcher with subtle cyan rim lighting in dark engineering studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCffvpCIaLjUOMtEjrS1iabC14W0QVS1W7VCZOfWnpKhqvCFDwWkuK0NxRB0S7RA4KElN_nxfPBJ2QDJyit7tvSrOUFs91Pgn5soC76duz4M3RujSUO2zZbabcvoTP1RlRSAFHKnnDoCZkiE2vPj6osbA3mAlQspu28ILjPFCJ8i-GTmKspVvYEbWHF_fuyhIr9lHvf29k907g2cY1XDnjf_7kZ2Tt5QFd7Q5WeGOo"/>
+</div>
+<div class="min-w-0">
+<div class="font-label-sm text-label-sm text-on-surface truncate">Vouched by Staff Leads at CloudCorp, HashStream &amp; DecryptEngine</div>
+<div class="font-code-hash text-code-hash text-on-surface-variant truncate">Zero collusion risk · Multi-sig verified</div>
+</div>
+</div>
+</div>
+<!-- Candidate System Visual Trace (Technical Depth Showcase) -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Audited Architecture Blueprint</span>
+<span class="font-label-sm text-label-sm text-primary font-code-hash">SHA-256 Validated</span>
+</div>
+<div class="relative w-full h-36 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-75" data-alt="Futuristic technical blueprint and systems architecture telemetry dashboard displaying high-velocity distributed consensus pipelines with electric cyan nodes, emerald status telemetry, dark slate backdrop, and cryptographic proof receipt overlays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaC8_izKF9MbaTSBKHPvoqqmDiQ59uVboN_VJn8fBsccre_HaXz2wMypEMtfkVk5Qdf98terOxTURVnZCsPQyL2tcYxe_whVGINfSvr0sDy4puZEtXqfxlX5mjUHJvhq9vpT0rvZZmw-Lpb5VCs0q3G-ohG7qtIkFnBVOSiJR5lz9jsTwUAEk2nQgtRs_weQcySz45rJQGC5SSj5iZmLvI-bmo63QV6qNpk3-tdyA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent flex items-end p-space-sm justify-between">
+<div class="space-y-0.5">
+<span class="font-code-hash text-code-hash text-primary-container font-medium">paxos-kv-cluster-v2.1</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Distributed WAL &amp; Zero-Loss Gossip Protocol</p>
+</div>
+<span class="bg-surface-container-high/90 text-secondary font-code-hash text-label-sm px-2 py-0.5 rounded">
+            Prod Tested
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Evaluator Quick Actions -->
+<section class="space-y-space-xs">
+<div class="font-label-sm text-label-sm text-on-surface-variant px-1 uppercase tracking-wider">Evaluator Operations</div>
+<div class="grid grid-cols-1 gap-space-xs">
+<button class="w-full bg-primary-container text-on-primary-container hover:opacity-95 active:scale-[0.99] transition-all p-space-sm rounded-lg font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-2 shadow-sm" id="verify-ledger-btn">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+<span>Verify Hash on Public Ledger</span>
+</button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="bg-surface-container hover:bg-surface-bright text-on-surface p-space-sm rounded-lg flex items-center justify-center gap-1.5 transition-colors" id="download-report-btn">
+<span class="material-symbols-outlined text-primary-container text-[18px]">download</span>
+<span class="font-label-md text-label-md font-medium">Audit Report (PDF)</span>
+</button>
+<button class="bg-surface-container hover:bg-surface-bright text-on-surface p-space-sm rounded-lg flex items-center justify-center gap-1.5 transition-colors" id="schedule-interview-btn">
+<span class="material-symbols-outlined text-secondary text-[18px]">calendar_today</span>
+<span class="font-label-md text-label-md font-medium">Schedule Fast-Track</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Proof Audit Trail List -->
+<section class="space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">history_edu</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Proof Audit Trail</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-code-hash">4 Milestones Verified</span>
+</div>
+<!-- Milestone Card 1: Expandable -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-code-hash text-label-sm">#CORE-812</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 days ago</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Lockless Multi-Raft Replication Engine</h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">task_alt</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Architected and shipped a lock-free distributed consensus engine replacing mutex locks with crossbeam atomic primitives.
+      </p>
+<div class="flex items-center gap-space-xs flex-wrap font-code-hash text-code-hash">
+<span class="bg-surface-container-low text-primary-container px-2 py-0.5 rounded">+2,480 LOC</span>
+<span class="bg-surface-container-low text-error px-2 py-0.5 rounded">-1,920 LOC</span>
+<span class="bg-surface-container-low text-secondary px-2 py-0.5 rounded">18x Benchmark Run</span>
+</div>
+<!-- Expandable Code Diff Accordion -->
+<details class="group bg-surface-container-low rounded-lg overflow-hidden transition-all">
+<summary class="list-none p-space-sm flex items-center justify-between cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2 text-primary font-code-hash text-code-hash">
+<span class="material-symbols-outlined text-[16px]">code</span>
+<span>Inspect Cryptographic Git Diff &amp; Raw Benchmarks</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-space-sm bg-surface-container-lowest font-code-hash text-label-sm space-y-2">
+<div class="text-on-surface-variant">Commit: <span class="text-primary font-semibold">0x8f2a67e2b109c91a004e8d3</span> (Signed GPG: 0x44D9C7E)</div>
+<div class="bg-surface-container-high/60 p-2 rounded space-y-1 overflow-x-auto text-[11px] leading-relaxed">
+<div class="text-error">- func (r *Raft) Propose(ctx context.Context, data []byte) error {</div>
+<div class="text-error">-     r.mu.Lock() // heavy contention point</div>
+<div class="text-error">-     defer r.mu.Unlock()</div>
+<div class="text-secondary">+ func (r *Raft) ProposeAtomic(ctx context.Context, batch *LogEntryBatch) (*Receipt, error) {</div>
+<div class="text-secondary">+     seq := r.ringSeq.Add(1) // lockless atomic CAS pipeline</div>
+<div class="text-secondary">+     return r.dispatcher.CommitFastPath(seq, batch)</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant text-[11px] pt-1">
+<span>Verified Test Coverage: <strong class="text-primary">96.8%</strong></span>
+<span>Deterministic Chaos Tests: <strong class="text-secondary">Passed (10,000 runs)</strong></span>
+</div>
+</div>
+</details>
+</div>
+<!-- Milestone Card 2 -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary-container/10 text-primary font-code-hash text-label-sm">#PERF-409</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 weeks ago</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Memory Subsystem Zero-Allocation Buffer Pool</h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">task_alt</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Eliminated GC pauses under peak ingress (1.2M queries/sec) using slab-based off-heap byte ringbuffers.
+      </p>
+<div class="flex items-center justify-between bg-surface-container-low p-space-sm rounded-lg font-code-hash text-code-hash">
+<div>
+<div class="text-on-surface-variant text-label-sm">Garbage Collection Pause</div>
+<div class="text-secondary font-semibold">14.2ms → 0.4ms (97% reduction)</div>
+</div>
+<div class="text-right">
+<div class="text-on-surface-variant text-label-sm">Audit Trace</div>
+<div class="text-primary">proof_0x4c99d211a7</div>
+</div>
+</div>
+</div>
+<!-- Milestone Card 3: Research & Whitepaper Verification -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-code-hash text-label-sm">#PAPER-018</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1 month ago</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Byzantine Fault Tolerant Mesh Protocol</h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Co-authored peer-reviewed preprint on partial synchrony network partitions. Validated with formal TLA+ specifications.
+      </p>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+<span>Formal Spec: Verified Correct</span>
+</span>
+<span class="font-code-hash">ArXiv: 2403.09118v1</span>
+</div>
+</div>
+</section>
+<!-- Toast Notification Modal Container (Interactive Feedback) -->
+<div class="hidden fixed bottom-20 left-4 right-4 bg-surface-container-highest text-primary px-space-md py-space-sm rounded-lg shadow-xl flex items-center justify-between z-50 transition-all duration-300 transform" id="toast-banner">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]" id="toast-icon">check_circle</span>
+<span class="font-label-md text-label-md" id="toast-message">Proof copied to clipboard</span>
+</div>
+<span class="font-code-hash text-label-sm text-on-surface-variant font-medium">READY</span>
+</div>
+</div>
+<script>
+  (function initEvaluatorPortal() {
+    const toast = document.getElementById('toast-banner');
+    const toastMsg = document.getElementById('toast-message');
+    const toastIcon = document.getElementById('toast-icon');
+    let toastTimeout = null;
+
+    function showToast(message, icon = 'check_circle') {
+      if (!toast) return;
+      toastMsg.textContent = message;
+      toastIcon.textContent = icon;
+      toast.classList.remove('hidden');
+      toast.classList.remove('translate-y-4', 'opacity-0');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-4', 'opacity-0');
+        setTimeout(() => toast.classList.add('hidden'), 250);
+      }, 3000);
+    }
+
+    // Copy public passport link
+    const copyBtn = document.getElementById('copy-passport-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard?.writeText('https://proof-trail.dev/verify/alex-chen.id');
+        showToast('Public candidate audit passport copied!', 'content_copy');
+      });
+    }
+
+    // QR modal action
+    const qrBtn = document.getElementById('qr-trigger-btn');
+    if (qrBtn) {
+      qrBtn.addEventListener('click', () => {
+        showToast('Generated QR code for secure in-person evaluation.', 'qr_code_2');
+      });
+    }
+
+    // Inspect validator button
+    const validateBtn = document.getElementById('validate-btn');
+    const proofInput = document.getElementById('proof-input');
+    const proofResult = document.getElementById('proof-result');
+
+    if (validateBtn && proofInput && proofResult) {
+      validateBtn.addEventListener('click', () => {
+        const val = proofInput.value.trim();
+        if (!val) {
+          showToast('Please insert a valid Proof ID hash.', 'error');
+          return;
+        }
+
+        // Visual flash feedback
+        proofResult.classList.add('ring-1', 'ring-primary-container');
+        setTimeout(() => proofResult.classList.remove('ring-1', 'ring-primary-container'), 600);
+
+        showToast(`Cryptographic receipt verified on L2 block state.`, 'verified');
+      });
+    }
+
+    // Sample clicks
+    document.querySelectorAll('.sample-click').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const hash = e.currentTarget.getAttribute('data-hash');
+        if (proofInput && hash) {
+          proofInput.value = hash;
+          showToast(`Loaded test hash: ${hash}`, 'tag');
+        }
+      });
+    });
+
+    // Public ledger redirect action
+    const ledgerBtn = document.getElementById('verify-ledger-btn');
+    if (ledgerBtn) {
+      ledgerBtn.addEventListener('click', () => {
+        showToast('Connecting to Arbitrum/Ethereum RPC node...', 'sync');
+      });
+    }
+
+    // Download PDF Action
+    const reportBtn = document.getElementById('download-report-btn');
+    if (reportBtn) {
+      reportBtn.addEventListener('click', () => {
+        showToast('Generating signed audit passport (JSON + PDF)...', 'download');
+      });
+    }
+
+    // Fast-track interview action
+    const scheduleBtn = document.getElementById('schedule-interview-btn');
+    if (scheduleBtn) {
+      scheduleBtn.addEventListener('click', () => {
+        showToast('Fast-track pre-vetted invite opened.', 'event_available');
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.4)]" data-active-classes="text-primary-container font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="timeline" href="#"><span class="material-symbols-outlined text-[22px]">history_toggle_off</span><span class="font-label-sm text-label-sm">Timeline</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="skill-matrix" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm">Skills</span></a><a class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-1 text-on-surface-variant transition-colors hover:text-on-surface" data-path="log-work" href="#"><div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center"><span class="material-symbols-outlined text-primary-container text-[20px]">add_task</span></div><span class="font-label-sm text-label-sm">Log Work</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[64px] min-h-[44px] gap-1 transition-colors text-primary-container font-semibold" data-path="audit-view" href="#"><span class="material-symbols-outlined text-[22px]">verified_user</span><span class="font-label-sm text-label-sm">Audit</span></a></div></nav></body></html>

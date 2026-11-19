@@ -1,0 +1,6 @@
+{
+  "name": "ProofTrail",
+  "description": "Cryptographic proof-of-work portfolio, AI-extracted competency matrix, and evaluator audit ledger.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
